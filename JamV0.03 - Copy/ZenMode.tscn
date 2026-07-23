@@ -1,0 +1,222 @@
+[gd_scene format=3 uid="uid://bbcolag2lgmdh"]
+
+[ext_resource type="Texture2D" uid="uid://buyn3r3rgyv6f" path="res://Textures and anims/STARTER AREAFINAL.png" id="1_v5gev"]
+[ext_resource type="Script" uid="uid://cpdagfyb8xix0" path="res://Scripts/PlayerScript.gd" id="2_tmbr7"]
+[ext_resource type="Script" uid="uid://chix2rfdgqtt8" path="res://Scripts/CameraScript.gd" id="3_huevb"]
+[ext_resource type="SpriteFrames" uid="uid://c4o5r60uoosel" path="res://Textures and anims/AurafarmerFrammmes.tres" id="4_u8wu6"]
+[ext_resource type="Script" uid="uid://cotnxpckp0ops" path="res://Scripts/platformGenScript.gd" id="5_wexgb"]
+[ext_resource type="PackedScene" uid="uid://dt2ee7wihtob3" path="res://Prefabs/PlatformPrefab.tscn" id="6_63r86"]
+[ext_resource type="Texture2D" uid="uid://d1wcyhflkrqwb" path="res://Textures and anims/icon.svg" id="9_0m81w"]
+[ext_resource type="Script" uid="uid://dql28x8p1tq7y" path="res://Scripts/FloodScript.gd" id="10_rxryd"]
+[ext_resource type="SpriteFrames" uid="uid://buo3ci7ubyjc5" path="res://FloodFrames.tres" id="11_v5gev"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0hh2j"]
+radius = 7.5949993
+height = 37.33
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hh2j"]
+size = Vector2(127, 125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5dpxp"]
+size = Vector2(8478, 157)
+
+[sub_resource type="Gradient" id="Gradient_idhs6"]
+colors = PackedColorArray(1, 0.1866607, 0.20329526, 1, 0.9999694, 0.52724683, 0.5172794, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0hh2j"]
+gradient = SubResource("Gradient_idhs6")
+
+[node name="Game" type="Node2D" unique_id=1906891492]
+
+[node name="StarterAreafinal" type="Sprite2D" parent="." unique_id=684990610]
+self_modulate = Color(1, 1, 1, 0.627451)
+position = Vector2(0, -9716.859)
+scale = Vector2(12.44, 20.090117)
+texture = ExtResource("1_v5gev")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=975378152 node_paths=PackedStringArray("Floodscript") groups=["Player"]]
+script = ExtResource("2_tmbr7")
+Floodscript = NodePath("../TheFlood")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=816695576]
+position = Vector2(-1.8, 8)
+shape = SubResource("CapsuleShape2D_0hh2j")
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1485552879 node_paths=PackedStringArray("playerscript")]
+zoom = Vector2(1.2, 1.2)
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
+script = ExtResource("3_huevb")
+playerscript = NodePath("..")
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="Player/Camera2D" unique_id=1125903539]
+self_modulate = Color(1, 1, 1, 0.39215687)
+offset_left = -268.0
+offset_top = -141.0
+offset_right = -100.0
+offset_bottom = -95.0
+bbcode_enabled = true
+text = "[font_size=16][i][b] 1.5x Speed Boost
+"
+horizontal_alignment = 1
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Player/Camera2D" unique_id=1370283464]
+self_modulate = Color(1, 1, 1, 0.39215687)
+offset_left = -256.0
+offset_top = -186.0
+offset_right = -100.0
+offset_bottom = -140.0
+bbcode_enabled = true
+text = "[font_size=16][i][b]Chain Dash Combo 1
+"
+horizontal_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Player/Camera2D" unique_id=1257987682]
+self_modulate = Color(1, 1, 1, 0.39215687)
+offset_left = -79.0
+offset_top = -200.0
+offset_right = 79.0
+offset_bottom = -154.0
+bbcode_enabled = true
+text = "[font_size=32][i][b]Bold[/b][/i]"
+horizontal_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Player/Camera2D" unique_id=1982790182]
+self_modulate = Color(1, 1, 1, 0.39215687)
+offset_left = -79.0
+offset_top = -166.0
+offset_right = 79.0
+offset_bottom = -120.0
+bbcode_enabled = true
+text = "[font_size=16][b][i]Timer"
+horizontal_alignment = 1
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Player/Camera2D" unique_id=1261175581]
+self_modulate = Color(1, 1, 1, 0.39215687)
+offset_left = -79.0
+offset_top = -146.0
+offset_right = 79.0
+offset_bottom = -100.0
+bbcode_enabled = true
+text = "[font_size=16][b][i] 2313m/s"
+horizontal_alignment = 1
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="Player/Camera2D" unique_id=1620632]
+visible = false
+self_modulate = Color(1, 1, 1, 0.39215687)
+offset_left = 100.0
+offset_top = -141.0
+offset_right = 267.99945
+offset_bottom = -95.0
+bbcode_enabled = true
+text = "[font_size=16][i][b] Flood Speed
+"
+horizontal_alignment = 1
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="Player/Camera2D" unique_id=343606665]
+visible = false
+self_modulate = Color(1, 1, 1, 0.39215687)
+offset_left = 122.0
+offset_top = -185.0
+offset_right = 249.0
+offset_bottom = -139.0
+bbcode_enabled = true
+text = "[font_size=16][i][b]Flood Distance
+"
+horizontal_alignment = 1
+
+[node name="RichTextLabel8" type="RichTextLabel" parent="Player/Camera2D" unique_id=2007466882]
+self_modulate = Color(1, 1, 1, 0.39215687)
+offset_left = -236.0
+offset_top = -119.0
+offset_right = -112.0
+offset_bottom = -73.0
+bbcode_enabled = true
+text = "[font_size=11][i][b]1.13
+"
+horizontal_alignment = 1
+
+[node name="ZenMode" type="RichTextLabel" parent="Player/Camera2D" unique_id=862087646]
+self_modulate = Color(1, 1, 1, 0.39215687)
+offset_left = 100.0
+offset_top = -186.0
+offset_right = 268.0
+offset_bottom = -140.0
+bbcode_enabled = true
+text = "[font_size=16][i][b][color=green]Zen Mode[/color]
+Tab to Leave
+"
+horizontal_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=360910581]
+position = Vector2(0, -3.8146973e-06)
+scale = Vector2(0.99999994, 0.99999994)
+sprite_frames = ExtResource("4_u8wu6")
+animation = &"Idle"
+
+[node name="PlatformGeneration" type="Node" parent="Player" unique_id=1022291573 node_paths=PackedStringArray("player")]
+script = ExtResource("5_wexgb")
+player = NodePath("..")
+platform_scenes = Array[PackedScene]([ExtResource("6_63r86")])
+
+[node name="Starter Platforms" type="Node2D" parent="." unique_id=854873006]
+
+[node name="Platform2" type="StaticBody2D" parent="Starter Platforms" unique_id=1600681643]
+position = Vector2(500, -200)
+scale = Vector2(1.945, 1.945)
+
+[node name="Sprite2D" type="Sprite2D" parent="Starter Platforms/Platform2" unique_id=1511100610]
+texture = ExtResource("9_0m81w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Starter Platforms/Platform2" unique_id=1158771557]
+position = Vector2(-0.5, -0.34999847)
+shape = SubResource("RectangleShape2D_0hh2j")
+
+[node name="Platform" parent="Starter Platforms" unique_id=1132038452 instance=ExtResource("6_63r86")]
+position = Vector2(0, 113.055)
+
+[node name="Platform3" type="StaticBody2D" parent="Starter Platforms" unique_id=1646756213]
+position = Vector2(-500, -200)
+scale = Vector2(1.945, 1.945)
+
+[node name="Sprite2D" type="Sprite2D" parent="Starter Platforms/Platform3" unique_id=2110157678]
+texture = ExtResource("9_0m81w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Starter Platforms/Platform3" unique_id=108802534]
+position = Vector2(-0.5, -0.34999847)
+shape = SubResource("RectangleShape2D_0hh2j")
+
+[node name="TheFlood" type="Area2D" parent="." unique_id=109417407 node_paths=PackedStringArray("player", "ScoreLog")]
+position = Vector2(0, 400)
+script = ExtResource("10_rxryd")
+player = NodePath("../Player")
+Zenmode = true
+ScoreLog = NodePath("../DummyForScoresave")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TheFlood" unique_id=1914046901]
+position = Vector2(0, 67.185)
+shape = SubResource("RectangleShape2D_5dpxp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TheFlood" unique_id=1891653530]
+position = Vector2(0, 352.69)
+scale = Vector2(11, 11)
+sprite_frames = ExtResource("11_v5gev")
+animation = &"Flood"
+
+[node name="Border" type="Sprite2D" parent="." unique_id=1779036511]
+self_modulate = Color(1, 1, 1, 0.47843137)
+position = Vector2(-1600, 0)
+rotation = 1.5707964
+scale = Vector2(2000, 6.016)
+texture = SubResource("GradientTexture1D_0hh2j")
+
+[node name="Border2" type="Sprite2D" parent="." unique_id=344203253]
+self_modulate = Color(1, 1, 1, 0.47843137)
+position = Vector2(1600, 0)
+rotation = 1.5707964
+scale = Vector2(2000, 6.016)
+texture = SubResource("GradientTexture1D_0hh2j")
+
+[node name="DummyForScoresave" type="Node" parent="." unique_id=73211266]
+
+[connection signal="body_entered" from="TheFlood" to="TheFlood" method="_on_body_entered"]

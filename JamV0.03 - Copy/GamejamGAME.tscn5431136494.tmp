@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://bbcolag2lgmdh"]
+
+[ext_resource type="PackedScene" uid="uid://dt2ee7wihtob3" path="res://PlatformPrefab.tscn" id="1_hgqw2"]
+[ext_resource type="Texture2D" uid="uid://d1wcyhflkrqwb" path="res://icon.svg" id="1_n7tam"]
+[ext_resource type="Script" uid="uid://chix2rfdgqtt8" path="res://CameraScript.gd" id="2_akfyk"]
+[ext_resource type="SpriteFrames" uid="uid://c4o5r60uoosel" path="res://AurafarmerFrammmes.tres" id="2_kj2rw"]
+[ext_resource type="Script" uid="uid://cpdagfyb8xix0" path="res://PlayerScript.gd" id="2_tctea"]
+[ext_resource type="Script" uid="uid://cotnxpckp0ops" path="res://platformGenScript.gd" id="4_vw3l5"]
+[ext_resource type="PackedScene" uid="uid://cowsen0nyqx31" path="res://lighting.tscn" id="6_ijev3"]
+[ext_resource type="Script" uid="uid://brhab74oqmvgv" path="res://LightingSpawner.gd" id="7_mmfe0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0hh2j"]
+radius = 7.5949993
+height = 37.33
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hh2j"]
+size = Vector2(127, 125)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ddpoh"]
+radius = 21.218157
+
+[node name="Game" type="Node2D" unique_id=1906891492]
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=975378152 groups=["Player"]]
+script = ExtResource("2_tctea")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=816695576]
+position = Vector2(-1.8, 8)
+shape = SubResource("CapsuleShape2D_0hh2j")
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1485552879]
+zoom = Vector2(1.2, 1.2)
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
+script = ExtResource("2_akfyk")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Player/Camera2D" unique_id=1257987682]
+self_modulate = Color(1, 1, 1, 0.39215687)
+offset_left = -79.0
+offset_top = -200.0
+offset_right = 79.0
+offset_bottom = -154.0
+bbcode_enabled = true
+text = "[font_size=32][i][b]Bold[/b][/i]"
+horizontal_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=360910581]
+position = Vector2(0, -3.8146973e-06)
+scale = Vector2(0.99999994, 0.99999994)
+sprite_frames = ExtResource("2_kj2rw")
+animation = &"Idle"
+
+[node name="PlatformGeneration" type="Node" parent="Player" unique_id=1022291573 node_paths=PackedStringArray("player")]
+script = ExtResource("4_vw3l5")
+player = NodePath("..")
+platform_scenes = Array[PackedScene]([ExtResource("1_hgqw2")])
+
+[node name="Starter Platforms" type="Node2D" parent="." unique_id=854873006]
+
+[node name="Platform2" type="StaticBody2D" parent="Starter Platforms" unique_id=1600681643]
+position = Vector2(500, -200)
+scale = Vector2(1.945, 1.945)
+
+[node name="Sprite2D" type="Sprite2D" parent="Starter Platforms/Platform2" unique_id=1511100610]
+texture = ExtResource("1_n7tam")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Starter Platforms/Platform2" unique_id=1158771557]
+position = Vector2(-0.5, -0.34999847)
+shape = SubResource("RectangleShape2D_0hh2j")
+
+[node name="Platform" parent="Starter Platforms" unique_id=1132038452 instance=ExtResource("1_hgqw2")]
+position = Vector2(0, 113.055)
+
+[node name="Platform3" type="StaticBody2D" parent="Starter Platforms" unique_id=1646756213]
+position = Vector2(-500, -200)
+scale = Vector2(1.945, 1.945)
+
+[node name="Sprite2D" type="Sprite2D" parent="Starter Platforms/Platform3" unique_id=2110157678]
+texture = ExtResource("1_n7tam")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Starter Platforms/Platform3" unique_id=108802534]
+position = Vector2(-0.5, -0.34999847)
+shape = SubResource("RectangleShape2D_0hh2j")
+
+[node name="Platform" parent="." unique_id=834583577 instance=ExtResource("1_hgqw2")]
+position = Vector2(300, 113.055)
+
+[node name="Danger" type="CollisionShape2D" parent="Platform" unique_id=1719630219]
+position = Vector2(-60.295, 0)
+shape = SubResource("CircleShape2D_ddpoh")
+
+[node name="Lightning" type="Sprite2D" parent="." unique_id=1141133162]
+position = Vector2(-170, 0)
+
+[node name="LightningSpawn" type="Node2D" parent="." unique_id=1965108769 node_paths=PackedStringArray("Player")]
+script = ExtResource("7_mmfe0")
+Lighting = ExtResource("6_ijev3")
+Player = NodePath("../Player")

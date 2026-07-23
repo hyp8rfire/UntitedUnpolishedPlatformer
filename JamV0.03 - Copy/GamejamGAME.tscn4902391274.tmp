@@ -1,0 +1,144 @@
+[gd_scene format=3 uid="uid://bbcolag2lgmdh"]
+
+[ext_resource type="PackedScene" uid="uid://dt2ee7wihtob3" path="res://Prefabs/PlatformPrefab.tscn" id="1_hgqw2"]
+[ext_resource type="Texture2D" uid="uid://buyn3r3rgyv6f" path="res://STARTER AREAFINAL.png" id="1_idhs6"]
+[ext_resource type="Texture2D" uid="uid://d1wcyhflkrqwb" path="res://Textures and anims/icon.svg" id="1_n7tam"]
+[ext_resource type="Script" uid="uid://chix2rfdgqtt8" path="res://Scripts/CameraScript.gd" id="2_akfyk"]
+[ext_resource type="SpriteFrames" uid="uid://c4o5r60uoosel" path="res://Textures and anims/AurafarmerFrammmes.tres" id="2_kj2rw"]
+[ext_resource type="Script" uid="uid://cpdagfyb8xix0" path="res://Scripts/PlayerScript.gd" id="2_tctea"]
+[ext_resource type="Script" uid="uid://cotnxpckp0ops" path="res://Scripts/platformGenScript.gd" id="4_vw3l5"]
+[ext_resource type="PackedScene" uid="uid://cowsen0nyqx31" path="res://Prefabs/lighting.tscn" id="6_ijev3"]
+[ext_resource type="Script" uid="uid://brhab74oqmvgv" path="res://Scripts/LightingSpawner.gd" id="7_mmfe0"]
+[ext_resource type="Script" uid="uid://dql28x8p1tq7y" path="res://FloodScript.gd" id="9_0nivh"]
+[ext_resource type="Texture2D" uid="uid://dlltfuxsm1mnn" path="res://Textures and anims/testbackground.jpg" id="10_umnh3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0hh2j"]
+radius = 7.5949993
+height = 37.33
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hh2j"]
+size = Vector2(127, 125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5dpxp"]
+size = Vector2(8478, 157)
+
+[node name="Game" type="Node2D" unique_id=1906891492]
+
+[node name="StarterAreafinal" type="Sprite2D" parent="." unique_id=684990610]
+self_modulate = Color(1, 1, 1, 0.627451)
+position = Vector2(0, -9716.859)
+scale = Vector2(12.44, 20.090117)
+texture = ExtResource("1_idhs6")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=975378152 groups=["Player"]]
+script = ExtResource("2_tctea")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=816695576]
+position = Vector2(-1.8, 8)
+shape = SubResource("CapsuleShape2D_0hh2j")
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1485552879]
+zoom = Vector2(1.2, 1.2)
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
+script = ExtResource("2_akfyk")
+
+[node name="Control" type="Control" parent="Player/Camera2D" unique_id=169291039]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -292.0
+offset_top = -203.0
+offset_right = 286.0
+offset_bottom = 127.0
+
+[node name="TextEdit" type="TextEdit" parent="Player/Camera2D/Control" unique_id=1110296247]
+layout_mode = 0
+offset_right = 183.0
+offset_bottom = 68.0
+text = "saffd"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Player/Camera2D" unique_id=1257987682]
+self_modulate = Color(1, 1, 1, 0.39215687)
+offset_left = -79.0
+offset_top = -200.0
+offset_right = 79.0
+offset_bottom = -154.0
+bbcode_enabled = true
+text = "[font_size=32][i][b]Bold[/b][/i]"
+horizontal_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Player/Camera2D" unique_id=1982790182]
+self_modulate = Color(1, 1, 1, 0.39215687)
+offset_left = -79.0
+offset_top = -166.0
+offset_right = 79.0
+offset_bottom = -120.0
+bbcode_enabled = true
+text = "[font_size=16][b][i]Timer"
+horizontal_alignment = 1
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Player/Camera2D" unique_id=1261175581]
+self_modulate = Color(1, 1, 1, 0.39215687)
+offset_left = -79.0
+offset_top = -146.0
+offset_right = 79.0
+offset_bottom = -100.0
+bbcode_enabled = true
+text = "[font_size=16][b][i] 2313m/s"
+horizontal_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=360910581]
+position = Vector2(0, -3.8146973e-06)
+scale = Vector2(0.99999994, 0.99999994)
+sprite_frames = ExtResource("2_kj2rw")
+animation = &"Idle"
+
+[node name="PlatformGeneration" type="Node" parent="Player" unique_id=1022291573 node_paths=PackedStringArray("player")]
+script = ExtResource("4_vw3l5")
+player = NodePath("..")
+platform_scenes = Array[PackedScene]([ExtResource("1_hgqw2")])
+
+[node name="LightningSpawn" type="Node2D" parent="Player" unique_id=1965108769 node_paths=PackedStringArray("Player")]
+script = ExtResource("7_mmfe0")
+Lighting = ExtResource("6_ijev3")
+Player = NodePath("..")
+
+[node name="Starter Platforms" type="Node2D" parent="." unique_id=854873006]
+
+[node name="Platform2" type="StaticBody2D" parent="Starter Platforms" unique_id=1600681643]
+position = Vector2(500, -200)
+scale = Vector2(1.945, 1.945)
+
+[node name="Sprite2D" type="Sprite2D" parent="Starter Platforms/Platform2" unique_id=1511100610]
+texture = ExtResource("1_n7tam")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Starter Platforms/Platform2" unique_id=1158771557]
+position = Vector2(-0.5, -0.34999847)
+shape = SubResource("RectangleShape2D_0hh2j")
+
+[node name="Platform" parent="Starter Platforms" unique_id=1132038452 instance=ExtResource("1_hgqw2")]
+position = Vector2(0, 113.055)
+
+[node name="Platform3" type="StaticBody2D" parent="Starter Platforms" unique_id=1646756213]
+position = Vector2(-500, -200)
+scale = Vector2(1.945, 1.945)
+
+[node name="Sprite2D" type="Sprite2D" parent="Starter Platforms/Platform3" unique_id=2110157678]
+texture = ExtResource("1_n7tam")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Starter Platforms/Platform3" unique_id=108802534]
+position = Vector2(-0.5, -0.34999847)
+shape = SubResource("RectangleShape2D_0hh2j")
+
+[node name="TheFlood" type="Area2D" parent="." unique_id=109417407 node_paths=PackedStringArray("player")]
+script = ExtResource("9_0nivh")
+player = NodePath("../Player")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TheFlood" unique_id=1914046901]
+position = Vector2(0, 292)
+shape = SubResource("RectangleShape2D_5dpxp")
+
+[node name="Sprite2D" type="Sprite2D" parent="TheFlood" unique_id=478195107]
+position = Vector2(5.000046, 293)
+scale = Vector2(4.617785, 0.42777786)
+texture = ExtResource("10_umnh3")

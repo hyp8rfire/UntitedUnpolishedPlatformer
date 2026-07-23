@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://buo3ci7ubyjc5"]
+
+[ext_resource type="Texture2D" uid="uid://bw206sflt8dub" path="res://Textures and anims/FLOOD.png" id="1_5u8lt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnd14"]
+atlas = ExtResource("1_5u8lt")
+region = Rect2(0, 0, 512, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3dop"]
+atlas = ExtResource("1_5u8lt")
+region = Rect2(512, 0, 512, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snvpe"]
+atlas = ExtResource("1_5u8lt")
+region = Rect2(1024, 0, 512, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnd14")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3dop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snvpe")
+}],
+"loop": 1,
+"name": &"Flood",
+"speed": 10.0
+}]
