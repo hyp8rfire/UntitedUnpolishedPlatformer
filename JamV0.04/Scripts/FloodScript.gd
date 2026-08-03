@@ -41,12 +41,12 @@ func _on_body_entered(body: Node2D) -> void:
 		if !Zenmode:
 			if GlobalScript.NAME == "":
 				print("NO NAME")
-				if GlobalScript.HighestName != "":
+				if GlobalScript.STOREDNAME != "":
+					GlobalScript.NAME = GlobalScript.STOREDNAME
+				elif GlobalScript.HighestName != "":
 					GlobalScript.NAME = GlobalScript.HighestName
-					print("USING HIGHEST NAME")
 				else:
 					GlobalScript.NAME = "Unnamed Climber"
-					print("NO LONGER")
 			GlobalScript.check_and_add_score(GlobalScript.NAME, player.Score)
 			print(GlobalScript.high_scores)
 			GlobalScript.newscore = true

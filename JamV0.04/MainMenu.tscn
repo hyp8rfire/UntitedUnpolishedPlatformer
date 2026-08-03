@@ -169,7 +169,7 @@ text = "[b][i][font_size= 64] U [/font_size][font_size= 42]n t i t l e d
 [font_size= 64] U [/font_size][font_size= 42]n p o l i s h e d
 [font_size= 64] P [/font_size][font_size= 42]l a t f o r m e r"
 
-[node name="Button3" type="Button" parent="." unique_id=1083557477]
+[node name="Button3" type="Button" parent="." unique_id=1083557477 node_paths=PackedStringArray("Username")]
 layout_mode = 0
 offset_left = 743.0
 offset_top = 392.0
@@ -178,6 +178,7 @@ offset_bottom = 487.0
 text = "Zen Mode
 (No Lightning, No Flood, No Lore Unlocks)"
 script = ExtResource("1_i26rj")
+Username = NodePath("../TextEdit")
 
 [node name="HighschoreChart" type="RichTextLabel" parent="." unique_id=2021679354]
 layout_mode = 0
@@ -193,7 +194,15 @@ offset_left = 431.0
 offset_top = 252.0
 offset_right = 718.0
 offset_bottom = 283.0
-placeholder_text = "Type a Cool and Wacky name here!"
+placeholder_text = "Type Here..."
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextEdit" unique_id=846798201]
+layout_mode = 0
+offset_top = -16.999992
+offset_right = 325.0
+offset_bottom = 3.7900162
+bbcode_enabled = true
+text = "[i][font_size= 12]Type a cool and wacky name here!!"
 
 [node name="Button4" type="Button" parent="." unique_id=1232825615]
 layout_mode = 0

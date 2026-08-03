@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://d1wcyhflkrqwb" path="res://Textures and anims/icon.svg" id="18_g0r1v"]
 [ext_resource type="Script" uid="uid://dql28x8p1tq7y" path="res://Scripts/FloodScript.gd" id="19_jc101"]
 [ext_resource type="SpriteFrames" uid="uid://buo3ci7ubyjc5" path="res://Textures and anims/FloodFrames.tres" id="20_c5xsr"]
-[ext_resource type="Script" uid="uid://degh2ct663rsg" path="res://Scripts/GlobalScript.gd" id="21_cnwv5"]
+[ext_resource type="Script" uid="uid://degh2ct663rsg" path="res://Scripts/GlobalScript/GlobalScript.gd" id="21_cnwv5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0hh2j"]
 radius = 7.5949993

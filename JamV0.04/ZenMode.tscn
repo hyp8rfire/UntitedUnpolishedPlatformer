@@ -29,7 +29,7 @@ gradient = SubResource("Gradient_idhs6")
 [node name="Game" type="Node2D" unique_id=1906891492]
 
 [node name="StarterAreafinal" type="Sprite2D" parent="." unique_id=684990610]
-self_modulate = Color(1, 1, 1, 0.627451)
+self_modulate = Color(1, 1, 1, 0.19607843)
 position = Vector2(0, -9716.859)
 scale = Vector2(12.44, 20.090117)
 texture = ExtResource("1_etfy7")

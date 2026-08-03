@@ -3,6 +3,7 @@ extends Node
 const SAVE_PATH = "user://highscores.save"
 const MAX_SCORES = 5
 var NAME = ""
+var STOREDNAME = ""
 var HighestScore = 0.0
 var HighestName = ""
 var lastscore 
@@ -61,6 +62,4 @@ func load_scores():
 				if high_scores.size() > 0:
 					HighestScore = high_scores[0]["score"]
 					HighestName = high_scores[0]["name"]
-					print("WAITTTTTTTTTTTTTTTTTTTTT " + str(HighestScore))
-					print("WAITTTTTTTTTTTTTTTTTTTTT " + HighestName)
 			file.close()

@@ -3,10 +3,17 @@ extends Button
 
 # Called when the node enters the scene tree for the first time.
 
-
+func _ready() -> void:
+	
+	if GlobalScript.STOREDNAME != "":
+		Username.text = GlobalScript.STOREDNAME
+	else:
+		Username.text = GlobalScript.HighestName
 func _on_pressed() -> void:
 	if Username.text != "":
+		print(Username.text)
 		GlobalScript.NAME = Username.text
+		GlobalScript.STOREDNAME = Username.text
 	
 		
 	get_tree().change_scene_to_file("res://GamejamGAME.tscn")

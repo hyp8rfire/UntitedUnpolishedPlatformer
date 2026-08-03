@@ -20,7 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://ba1c55qamp0f0" path="res://Music/Transtions/electronic to epic.wav" id="9_foq5c"]
 [ext_resource type="AudioStream" uid="uid://dsskpda68vx4e" path="res://Music/epic loop.wav" id="9_o5pdv"]
 [ext_resource type="SpriteFrames" uid="uid://buo3ci7ubyjc5" path="res://Textures and anims/FloodFrames.tres" id="9_umnh3"]
-[ext_resource type="Script" uid="uid://degh2ct663rsg" path="res://Scripts/GlobalScript.gd" id="12_teyok"]
+[ext_resource type="Script" uid="uid://degh2ct663rsg" path="res://Scripts/GlobalScript/GlobalScript.gd" id="12_teyok"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0hh2j"]
 radius = 7.5949993
