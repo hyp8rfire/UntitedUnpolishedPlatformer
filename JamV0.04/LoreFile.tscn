@@ -1,0 +1,170 @@
+[gd_scene format=3 uid="uid://cfeuqcxkvooud"]
+
+[ext_resource type="Script" uid="uid://bps8jqto2k54m" path="res://Scripts/LoreScript.gd" id="1_1enfl"]
+
+[node name="Control" type="Control" unique_id=272256521]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1enfl")
+
+[node name="Depths" type="Control" parent="." unique_id=491553398]
+visible = false
+anchors_preset = 0
+offset_right = 1260.0
+offset_bottom = 609.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Depths" unique_id=1564045716]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -255.5
+offset_top = -152.0
+offset_right = 255.5
+offset_bottom = 129.5
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[b][font_size= 32]Ruins of The Depths[/font_size][/b]
+Unlocked at 0m
+
+[i]\"They left us with this\"[i]
+
+Even they were impressed, how mortals could build creations so far more grand than their own. Those towers breached even the Skylimit. However, when mortal soul gazed upon the golden clouds, they couldnt help but long for the apple the serpent offered."
+scroll_active = false
+horizontal_alignment = 1
+justification_flags = 162
+
+[node name="Couldzone" type="Control" parent="." unique_id=816801208]
+visible = false
+anchors_preset = 0
+offset_right = 1260.0
+offset_bottom = 609.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Couldzone" unique_id=1256421152]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -255.5
+offset_top = -152.0
+offset_right = 255.5
+offset_bottom = -9.5
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[b][font_size= 32]The Stormzone[/font_size][/b]
+Unlocked At 1000m
+Info Unlocked At 1500m
+
+[i]\"We cannot understand them, nor will they understand us.\"[/i]
+
+\"Why can't we bear the same wealth, power, and prosperity as you? Why must we suffer while you live without pain, without sorrow, Without agony?\" We begged for an answer, and they returned with silence. Quiet, Quiet silence.
+
+[font_size= 9] Yes, This areference.
+I'm stuck on Hokma."
+scroll_active = false
+horizontal_alignment = 1
+justification_flags = 162
+
+[node name="Skylimit" type="Control" parent="." unique_id=2016836643]
+visible = false
+anchors_preset = 0
+offset_right = 1260.0
+offset_bottom = 609.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Skylimit" unique_id=1527224243]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -255.5
+offset_top = -152.0
+offset_right = 255.5
+offset_bottom = -8.5
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[b][font_size= 32]The Skylimit[/font_size][/b]
+Unlocked At 2000m
+Info Unlocked At 2500m
+
+[i]\"However, we do not have a defintion for the term 'Limit'.\"[/i]
+
+They tried everything to stop us from finding out. They told us nothing but endless void lies behind the blue skies, that there would be no paradise, and that we would loose our sanity if we tried to go beyond. Only one truth they told.\"
+"
+scroll_active = false
+horizontal_alignment = 1
+justification_flags = 162
+
+[node name="Godzone" type="Control" parent="." unique_id=41029282]
+visible = false
+anchors_preset = 0
+offset_right = 1260.0
+offset_bottom = 609.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Godzone" unique_id=663311607]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -255.5
+offset_top = -224.5
+offset_right = 255.49988
+offset_bottom = -68.5
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+scroll_active = false
+horizontal_alignment = 1
+justification_flags = 162
+
+[node name="Button2" type="Button" parent="." unique_id=385179611]
+layout_mode = 0
+offset_left = 930.0
+offset_top = 467.0
+offset_right = 1039.0
+offset_bottom = 524.0
+text = "Next"
+
+[node name="Button3" type="Button" parent="." unique_id=1495756096]
+layout_mode = 0
+offset_left = 873.0
+offset_top = 531.0
+offset_right = 1103.0
+offset_bottom = 588.0
+text = "Return to Menu"
+
+[node name="Button4" type="Button" parent="." unique_id=788292849]
+layout_mode = 0
+offset_left = 198.0
+offset_top = 466.0
+offset_right = 307.0
+offset_bottom = 523.0
+text = "Back"
+
+[node name="Button" type="Button" parent="." unique_id=186781143]
+visible = false
+self_modulate = Color(1, 1, 1, 0.27450982)
+layout_mode = 0
+offset_left = 376.0
+offset_top = 460.0
+offset_right = 883.0
+offset_bottom = 524.0
+
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

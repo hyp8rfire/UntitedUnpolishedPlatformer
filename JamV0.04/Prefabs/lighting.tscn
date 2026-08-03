@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cowsen0nyqx31"]
+
+[ext_resource type="Script" uid="uid://dwo5rk416x04c" path="res://Scripts/lightingScript.gd" id="1_cvhd8"]
+[ext_resource type="SpriteFrames" uid="uid://qxoihkkuxjrv" path="res://Textures and anims/Lighting.tres" id="1_jihx2"]
+[ext_resource type="AudioStream" uid="uid://bfd68vagnojvh" path="res://Music/STRIKELIGHTNING.mp3" id="3_4vskh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ddpoh"]
+size = Vector2(6, 3282)
+
+[node name="Lighting" type="Area2D" unique_id=1897643703]
+script = ExtResource("1_cvhd8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1608462619]
+shape = SubResource("RectangleShape2D_ddpoh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1853996859]
+position = Vector2(9.536743e-07, 7.05719e-05)
+scale = Vector2(2.375, 25.640625)
+sprite_frames = ExtResource("1_jihx2")
+animation = &"charge"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=798644683]
+stream = ExtResource("3_4vskh")
+volume_db = -20.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
